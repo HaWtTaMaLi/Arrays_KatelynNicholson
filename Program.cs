@@ -11,7 +11,7 @@ namespace Arrays_KatelynNicholson
     {
 
         //array for weapon information
-        static string[] weaponNames = { "Gun1", "Gun2", "Gun3", "Gun4" };
+        static string[] weaponNames = { "Pistol     ", "ShotGun    ", "Sniper     ", "AsultRifle " };
         static int[] weaponPower = { 10, 20, 30, 40 };
         static int[] maxAmmo = { 20, 30, 50, 90 };
         static int[] currentAmmo = { 20, 30, 50, 90 };
@@ -22,29 +22,53 @@ namespace Arrays_KatelynNicholson
         static void Main()
         {
             ShowHUD();
-
+            Console.ReadKey();
+            Console.WriteLine("You load your first weapon and shoot it at the target.");
+            Console.ReadKey();
             Fire();
+            Console.ReadKey();
             Fire();
+            Console.ReadKey();
             Reload();
-            ShowHUD();
+            Console.ReadKey();
+            Console.Clear();
 
+            Console.WriteLine("You see the Sniper and grab it to try.");
             SwitchWeapon(2); // Switch to Gun3
-            Fire();
-            PickUpAmmo(2, 10);
+            Console.ReadKey();
             ShowHUD();
+            Console.ReadKey();
+            Console.WriteLine("You pick it up and aim it at the target.");
+            Fire();
+            Console.ReadKey();
+            Console.WriteLine("You pick up some ammo.");
+            PickUpAmmo(2, 10);
+            Console.ReadKey();
+            ShowHUD();
+            Console.ReadKey();
+            Console.Clear();
+
+            Console.WriteLine("You pick up some ammo.");
+            PickUpAmmo(2, 10);
+            Console.ReadKey();
+            Console.WriteLine("You pick up the Asult Rifle");
+            SwitchWeapon(3);
+            Console.ReadKey();
+            ShowHUD();
+            Console.ReadKey();
         }
 
         //show HUD
         private static void ShowHUD()
         {
             //for the HUD
-            Console.WriteLine("\n================== HUD =================");
+            Console.WriteLine("\n=================== HUD ===================");
             for (int i = 0; i < weaponNames.Length; i++) // i is short for Index used in Loops
             {
                 string selected = (i == currentWeapon) ? "<-- Equipped" : "";
-                Console.WriteLine($"{weaponNames[i]}: {currentAmmo[i]}/{maxAmmo[i]}    | Power: {weaponPower[i]}    | Rate: {fireRate[i]} {selected}");
+                Console.WriteLine($"{weaponNames[i]}:{currentAmmo[i]}/{maxAmmo[i]}   | Power: {weaponPower[i]}   | Rate: {fireRate[i]} {selected}");
             }
-            Console.WriteLine("========================================\n");
+            Console.WriteLine("===========================================\n");
         }
 
         //fire 
@@ -69,7 +93,7 @@ namespace Arrays_KatelynNicholson
         {
             //reload gun
             currentAmmo[currentWeapon] = maxAmmo[currentWeapon];
-            Console.WriteLine($"{weaponNames[currentWeapon]} reladed. Ammo: {currentAmmo[currentWeapon]}");
+            Console.WriteLine($"{weaponNames[currentWeapon]} reloaded. Ammo: {currentAmmo[currentWeapon]}");
         }
 
         //range checking
